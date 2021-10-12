@@ -1,8 +1,44 @@
 {% extends 'layout.html' %}
 
+
+{% block title %}Google Search{% endblock %}
+
 {% block body %}
-    <form action="/" method="POST">
-        <input name="name" placeholder="Name" type="text">
-        <input type="submit">
+    <!-- Navegation -->
+     <!-- Navegation -->
+     <div class="navegation">
+        <ul>
+            <li><a class="links" href="#user"><button class="signbutton" type="button">Sign in</button></a></li>
+            <li><a href="#grid"><img class="grid" src="https://cdn3.iconfinder.com/data/icons/navigation-and-settings/24/Material_icons-01-11-512.png" title="Google apps"></a></li>      
+        
+            <li><a href="{{ url_for('google_image') }}">Search by images</a></li>
+            <li><a href="{{ url_for('google_advanced') }}">Google Advanced Search</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="logo">
+        <img alt="Google" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+        <span >Imágenes</span>
+    </div>
+
+    <!-- form -->
+
+    <form id="search" action="https://google.com/search">
+        <div class="bar">
+            <input id="searchbar" class="searchbar" type="text" name="q" title="Search">
+            <a href="#"><img id="voice" class="voice" title="Search by Voice" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Google_mic.svg/716px-Google_mic.svg.png"></a>
+        </div>
+        <div class="buttons">
+            <input class="button" type="submit" value="Google Search">
+            <input class="button" type="submit" value="I'm Feeling Lucky" name="btnI" class="btn">
+        </div>
     </form>
+
+    <div class="mt-4">
+        <!-- <button class="btn btn-success" id="start">Start</button> -->
+        <button class="btn btn-danger" id="stop">Stop</button>
+        <p id="status" class="lead mt-3 text-light" style="display: none">Listenting ...</p>
+    </div>
+
 {% endblock %}
